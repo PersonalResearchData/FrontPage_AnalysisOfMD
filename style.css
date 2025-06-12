@@ -1,0 +1,204 @@
+:root {
+    --bs-font-sans-serif: 'Homemade Apple', -apple-system,
+      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+      Arial, 'Noto Sans', sans-serif;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: var(--bs-font-sans-serif);
+}
+
+.brand-handwritten {
+    font-family: 'Homemade Apple', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: #333;
+}
+
+/* Navbar styling */
+.navbar {
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fa !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #007bff !important;
+    transition: color 0.3s;
+}
+
+.navbar-brand:hover {
+    color: #0056b3 !important;
+}
+
+.navbar-nav .nav-link {
+    display: inline-block;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white !important;
+    border-radius: 0.25rem;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    font-size: 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #003087;
+    font-weight: bold;
+}
+
+/* Video section styling */
+.video-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.video-player {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Card content styling - 修正版 */
+.card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.card-text {
+    text-align: left;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+}
+
+.card-text ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.card-img-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive adjustments */
+@media (min-width: 576px) {
+    .card-content-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .card-text {
+        flex-basis: 50%;
+        max-width: 50%;
+        margin-bottom: 0;
+        padding-right: 1rem;
+    }
+    .card-img-wrapper {
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-nav {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .navbar-nav .nav-link {
+        margin: 0.25rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .video-player {
+        max-width: 100%;
+    }
+}
+
+#rdf-card, #adf-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#rdf-card:hover, #adf-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    background-color: #f0f8ff !important;
+}
+
+/* ホバー時のカード内コンテンツのアニメーション */
+#rdf-card:hover .card-title,
+#adf-card:hover .card-title {
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+#rdf-card:hover .card-img-wrapper img,
+#adf-card:hover .card-img-wrapper img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* ホバー時のリストアイテムのアニメーション */
+#rdf-card:hover .card-text li,
+#adf-card:hover .card-text li {
+    color: #007bff;
+    font-weight: 500;
+    transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+/* ホバーインジケーター（右上角にアイコン追加） */
+#rdf-card::after, #adf-card::after {
+    content: "🔗";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#rdf-card:hover::after, #adf-card:hover::after {
+    opacity: 1;
+}
+
+/* カードの位置調整（::after用） */
+#rdf-card, #adf-card {
+    position: relative;
+}
+
+.card.h-80 {
+    display: flex;
+    flex-direction: column;
+}
+
+.card.h-80 .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card.h-80 .card-body .card-content-wrapper {
+    flex-grow: 1;
+}
